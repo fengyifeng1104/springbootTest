@@ -29,7 +29,7 @@ public class templateManageController {
 	
 	@RequestMapping(value="/getTemplateList",method={RequestMethod.GET})
 	public Page getTemplateList(@RequestParam Integer page,@RequestParam Integer size){
-		return templateService.getTemplateList(page, size);
+		return templateService.getTemplateList(page-1, size);
 	}
 	
 	

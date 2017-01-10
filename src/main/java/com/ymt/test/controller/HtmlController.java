@@ -27,6 +27,21 @@ public class HtmlController {
         return "addcase";
     }
     
+    //测试场景编辑界面
+    @RequestMapping("/editscene")
+    public String editscene(@RequestParam("sid") String sid, Model model) {
+        model.addAttribute("sid", sid);
+        return "editscene";
+    }
+    
+    
+    //测试场景添加界面
+    @RequestMapping("/addscene")
+    public String addscene() {
+        return "addscene";
+    }
+    
+    
     
     //测试模板编辑界面
     @RequestMapping("/edittemplate")

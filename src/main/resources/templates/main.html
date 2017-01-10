@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	
@@ -93,7 +92,9 @@
   		<tbody>
   		</tbody>
   	</table>
-  
+  	<div>
+    	<ul id='scene_page' style="cursor:hand;"></ul>
+	</div>
   
   </div>
   
@@ -125,6 +126,10 @@
   		<tbody>
   		</tbody>
   	</table>
+  	
+  	<div>
+    	<ul id='template_page' style="cursor:hand;"></ul>
+	</div>
   </div>
   
   
@@ -132,22 +137,11 @@
 
 </div>
 
-
-<!--这里是弹出层效果 -->
-<div id="racePop" class="raceShow" style="overflow: auto; background-color:#f1f1f1;border:solid 1px #ccc;position:absolute;display:none;width:300px;height:450px;padding:5px;font-size:12px;">
-<pre></pre>
-
-<dd style="float:right"><a href="javascript:;" onclick="$('#racePop').hide();">X</a></dd>
-	<br />
-
-
-</div>
+<!-- 隐去翻页 前一页和后一页li -->
 <style>
 	.pagination li > a:empty {
 		display: none;
 	}
-</style>	
-
+</style>
 
 </html>
-

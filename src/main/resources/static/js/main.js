@@ -1,4 +1,4 @@
-	function getCookie(name)
+function getCookie(name)
 		{
 		var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
 		if(arr=document.cookie.match(reg))
@@ -14,9 +14,9 @@
 		$.get("/caseManage/getCaseList?page="+pageNum+"&size=10",function(data){
 			console.log('catalog data: ', data);
 			
-			localStorage.page=JSON.stringify({"totalPage":data.totalPages});
+			localStorage.page_case=JSON.stringify({"totalPage_case":data.totalPages});
 			
-			$("#case_table tbody").empty()
+			$("#case_table tbody").empty();
 			var $tbody = $('#case_table tbody');
 			var htmlStr = '';
 			$.each(data.content, function(i,item){
@@ -54,17 +54,18 @@
 	    
 	    	//分页
 		 var element = $('#case_page');//获得数据装配的位置
-	     var pageN = JSON.parse(localStorage.page).totalPage;
-	     element.bootstrapPaginator(pageInit(pageN));	//进行初始化
+	     var pageN = JSON.parse(localStorage.page_case).totalPage_case;
+	     element.bootstrapPaginator(pageInit('selectCase',pageN));	//进行初始化
     
 	}
 	
-	function selectTemplate(ev) {
+	function selectTemplate(ev,pageNum) {
 		ev.preventDefault();
-		
+		pageNum = pageNum ||  1;
 		//Url to do 
-		$.get("/templateManage/getTemplateList?page=0&size=3",function(data){
-			$("#template_table tbody").empty()
+		$.get("/templateManage/getTemplateList?page="+pageNum+"&size=10",function(data){
+			localStorage.page_template=JSON.stringify({"totalPage_template":data.totalPages});
+			$("#template_table tbody").empty();
 			var $tbody = $('#template_table tbody');
 			var htmlStr = '';
 			//数据在content节点下面
@@ -93,14 +94,19 @@
 			});
 		$tbody.append(htmlStr);	
 		});
-		   $(ev.target).tab('show');	
+		   $(ev.target).tab('show');
+		    var element = $('#template_page');//获得数据装配的位置
+	        var pageN = JSON.parse(localStorage.page_template).totalPage_template;
+	       element.bootstrapPaginator(pageInit('selectTemplate',pageN));	//进行初始化	
 	}
 	
-	function selectScene(ev) {
+	function selectScene(ev,pageNum) {
 		ev.preventDefault();
+		pageNum = pageNum ||  1;
 		//Url to do 
-		$.get("/sceneManage/getSceneList?page=0&size=1",function(data){
-			$("#scene_table tbody").empty()
+		$.get("/sceneManage/getSceneList?page="+pageNum+"&size=10",function(data){
+			localStorage.page_scene=JSON.stringify({"totalPage_scene":data.totalPages});
+			$("#scene_table tbody").empty();
 			var $tbody = $('#scene_table tbody');
 			var htmlStr = '';
 			//数据在content节点下面
@@ -127,10 +133,14 @@
 			});
 		$tbody.append(htmlStr);	
 		});
-		   $(ev.target).tab('show');	
+		   $(ev.target).tab('show');
+		    var element = $('#scene_page');//获得数据装配的位置
+	     	var pageN = JSON.parse(localStorage.page_scene).totalPage_scene;
+	     element.bootstrapPaginator(pageInit('selectScene',pageN));	//进行初始化
+    	
 	}
 	
-	function pageInit(totalPage){
+	function pageInit(funType,totalPage){
 
 		var nP = 5
 		if (totalPage){
@@ -170,7 +180,15 @@
             },
             onPageClicked: function (e, originalEvent, type, page) {
             	$('.pagination li > a:empty').hide();  
-                 selectCase(e,page);
+            	if (funType=='selectCase'){
+                 	selectCase(e,page);
+                }
+                else if (funType=='selectTemplate'){
+                	selectTemplate(e, page);
+                }
+                else if (funType=='selectScene'){
+                	selectScene(e, page);
+                }
             }
         };
         return options;
@@ -218,4 +236,3 @@ $(function() {
 
 	 
 })
-

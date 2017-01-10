@@ -26,7 +26,7 @@ public class SceneManageController {
 	
 	@RequestMapping(value="/getSceneList" ,method={RequestMethod.GET})
 	public Page getSceneList(@RequestParam Integer page,@RequestParam Integer size){
-		return sceneService.getSceneList(page, size);
+		return sceneService.getSceneList(page-1, size);
 	}
 	
 	@RequestMapping(value="/editScene" ,method={RequestMethod.POST})
