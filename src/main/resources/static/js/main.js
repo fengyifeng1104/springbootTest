@@ -11,7 +11,7 @@
 		ev.preventDefault();
 		//Url to do 
 		pageNum = pageNum ||  1;
-		$.get("/caseManage/getCaseList?page="+pageNum+"&size=2",function(data){
+		$.get("/caseManage/getCaseList?page="+pageNum+"&size=10",function(data){
 			console.log('catalog data: ', data);
 			
 			localStorage.page=JSON.stringify({"totalPage":data.totalPages});
@@ -20,7 +20,7 @@
 			var $tbody = $('#case_table tbody');
 			var htmlStr = '';
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/editcase?cid='+item.caseId+'" >编辑</a></td><td>'+
+				htmlStr += '<tr><td><a href="/editcase?cid='+item.caseId+'" target="_blank">编辑</a></td><td>'+
 							item.userId+
 							'</td><td>'+
 							item.caseId+
@@ -53,7 +53,7 @@
 	    $(ev.target).tab('show');	
 	    
 	    	//分页
-		var element = $('#case_page');//获得数据装配的位置
+		 var element = $('#case_page');//获得数据装配的位置
 	     var pageN = JSON.parse(localStorage.page).totalPage;
 	     element.bootstrapPaginator(pageInit(pageN));	//进行初始化
     
@@ -69,7 +69,7 @@
 			var htmlStr = '';
 			//数据在content节点下面
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/edittemplate?tid='+item.templateId+'">编辑</a></td><td>'+
+				htmlStr += '<tr><td><a href="/edittemplate?tid='+item.templateId+'" target="_blank">编辑</a></td><td>'+
 							item.userId+
 							'</td><td>'+
 							item.templateId+
@@ -105,7 +105,7 @@
 			var htmlStr = '';
 			//数据在content节点下面
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/editscene?sid='+item.sceneId+'" >编辑</a></td><td>'+
+				htmlStr += '<tr><td><a href="/editscene?sid='+item.sceneId+'" target="_blank" >编辑</a></td><td>'+
 							item.userId+
 							'</td><td>'+
 							item.sceneId+

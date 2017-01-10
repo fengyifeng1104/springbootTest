@@ -16,6 +16,10 @@ $(function() {
 	//$('#caseid').val(qs.cid);
 	console.log(qs.cid);
 	
+	var user = JSON.parse(localStorage.user) || {uid: 0};
+	$('#curUserId').html(user.uid);
+	
+	
 	//get请求 获取case信息  放到对应位置
 	$.get('/caseManage/getCaseById?caseId='+qs.cid,function(data){
 		
@@ -37,31 +41,55 @@ $(function() {
 	
 	
 	
-	$("#save").click(function(){
-		 console.log($('#caseid').val());
-		 var tmp = $('#caseid').val();
-		 
-		 
-		 	$.ajax({
-		 		type: 'POST',
-		 		contentType: "application/json; charset=utf-8",
-		 		url: '/springboot/saveCase',
+	
+	
+	$('#save_editcase').on('click', function(ev) {
+			ev.preventDefault();
 		 	
-		 		data: JSON.stringify({"age":tmp}),
-		 		dataType : 'json'
-		 	}).done(function(data) {
-		 		 alert("success" + data.id);
-		 	}).fail(function(data) {
-		 		alert("fail")
-		 	})
- 	
- 	});
+		 	var v_caseId = $('#caseId').val();
+		 	var v_caseDescription = $('#caseDescription').val();
+		 	var v_modelDescription = $('#modelDescription').val();
+		 	var v_templateId = $('#templateId').val();
+		 	var v_templateName = $('#templateName').val();
+		 	var v_sceneId = $('#sceneId').val();
+		 	var v_sceneDescription = $('#sceneDescription').val();
+		 	var v_extraInputList = $('#extraInputList').val();
+		 	var v_checkPoinDescription = $('#checkPoinDescription').val();
+		 	var v_extraCheckList = $('#extraCheckList').val();
+		 	var v_defaultCheckType = $('#defaultCheckType').val();
+		 	
 	
-	
-	var user = JSON.parse(localStorage.user) || {uid: 0};
-	$('#curUserId').html(user.uid);
-	
-
+			 $.ajax({
+			 		type: 'POST',
+			 		contentType: "application/json; charset=utf-8",
+			 		url: '/caseManage/editCase',
+			 	
+			 		data: JSON.stringify({"userId":user.uid,
+			 							"caseId":v_caseId,
+			 							"caseDescription":v_caseDescription,
+			 							"modelDescription":v_modelDescription,
+			 							"templateId":v_templateId,
+			 							"templateName":v_templateName,
+			 							"sceneId":v_sceneId,
+			 							"sceneDescription":v_sceneDescription,
+			 							"extraInputList":v_extraInputList,
+			 							"checkPoinDescription":v_checkPoinDescription,
+			 							"extraCheckList":v_extraCheckList,
+			 							"defaultCheckType":v_defaultCheckType,
+			 							}),
+			 		dataType : 'json'
+			 	}).done(function(data) {
+			 		 alert("保存成功");
+			 		 return window.close();
+			 	}).fail(function(data) {
+			 		alert("保存失败")
+			 });
+		 		
+		 	
+		 
+		 
+		return false;
+	})
 	
 })
 	
