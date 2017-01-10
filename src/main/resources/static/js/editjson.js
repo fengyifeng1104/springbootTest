@@ -42,16 +42,17 @@ $(function() {
 		});
 	}
 	
-	$('#edit').on('click',function(ev){
+	$('#edit_editjson').on('click',function(ev){
 		ev.preventDefault();
 		$('#jsonPre').hide();
 		$('#jsonText').show();
 		return false;
 	});
 
-	$('#save').on('click', function(ev) {
+	$('#save_editjson').on('click', function(ev) {
 			ev.preventDefault();
-		 
+		 	
+		 	var v_templateId = $('#jsonId').html();
 		 	var jsonStr= $('#jsonText').val();
 		 	if (isJson(jsonStr)){
 			 	$.ajax({
@@ -59,10 +60,13 @@ $(function() {
 			 		contentType: "application/json; charset=utf-8",
 			 		url: '/templateManage/editTemplateDetailById',
 			 	
-			 		data: JSON.stringify({"templateId":4,"userId":1,"templateDetail":jsonStr}),
+			 		data: JSON.stringify({"templateId":v_templateId,
+			 								"userId":user.uid,
+			 								"templateDetail":jsonStr}),
 			 		dataType : 'json'
 			 	}).done(function(data) {
 			 		 alert("保存成功");
+			 		 localStorage.shouldGet = 1;
 			 		 return window.close();
 			 	}).fail(function(data) {
 			 		alert("保存失败")

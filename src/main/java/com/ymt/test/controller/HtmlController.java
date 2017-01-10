@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HtmlController {
 	
-	
-    //get 参数在？
-	
+	//测试用例添加界面
+    @RequestMapping("/addcase")
+    public String addcase() {return "addcase";}
 	
     //测试用例编辑界面
     @RequestMapping("/editcase")
@@ -21,11 +21,10 @@ public class HtmlController {
         return "editcase";
     }
     
-    //测试用例添加界面
-    @RequestMapping("/addcase")
-    public String addcase() {
-        return "addcase";
-    }
+    
+    //测试场景添加界面
+    @RequestMapping("/addscene")
+    public String addscene() {return "addscene";}
     
     //测试场景编辑界面
     @RequestMapping("/editscene")
@@ -35,13 +34,10 @@ public class HtmlController {
     }
     
     
-    //测试场景添加界面
-    @RequestMapping("/addscene")
-    public String addscene() {
-        return "addscene";
-    }
     
-    
+    //测试模板添加界面
+    @RequestMapping("/addtemplate")
+    public String addtemplate() {return "addtemplate";}
     
     //测试模板编辑界面
     @RequestMapping("/edittemplate")
@@ -49,7 +45,6 @@ public class HtmlController {
         model.addAttribute("tid", tid);
         return "edittemplate";
     }
-    
     
     //json模板编辑界面
     @RequestMapping("/editjson")
