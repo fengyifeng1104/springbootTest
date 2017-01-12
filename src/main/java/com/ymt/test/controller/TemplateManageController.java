@@ -14,7 +14,7 @@ import com.ymt.test.service.TemplateService;
 
 @RestController
 @RequestMapping("/templateManage")
-public class templateManageController {
+public class TemplateManageController {
 	
 	@Resource
 	private TemplateService templateService;
