@@ -1,5 +1,7 @@
 package com.ymt.test.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Page;
@@ -37,6 +39,11 @@ public class CaseManageController {
 	public String editCase(@RequestBody CaseModel caseModel){
 		caseService.editCase(caseModel);
 		return "编辑成功";
+	}
+	
+	@RequestMapping(value="/searchCaseByDescription",method={RequestMethod.GET})
+	public List<CaseModel> searchCaseByDescription(@RequestParam String caseDescription){
+		return caseService.searchCaseByDescription(caseDescription);
 	}
 	
 	

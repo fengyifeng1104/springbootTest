@@ -24,7 +24,8 @@ public interface CaseDao{
 	
 	public List<CaseModel> getCaseListByUserId();
 	
+	public List<CaseModel> searchCaseByDescription(String caseDescription);
 	
-	
+
 	
 }

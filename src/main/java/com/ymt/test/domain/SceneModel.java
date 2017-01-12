@@ -20,6 +20,7 @@ public class SceneModel {
 	private Integer userId;
 	private boolean bDeleted;
 	private Integer sceneLevel;
+	private String ReqMethod;
 	private String mark;
 	public Integer getSceneId() {
 		return sceneId;
@@ -86,6 +87,12 @@ public class SceneModel {
 	}
 	public void setMark(String mark) {
 		this.mark = mark;
+	}
+	public String getReqMethod() {
+		return ReqMethod;
+	}
+	public void setReqMethod(String reqMethod) {
+		ReqMethod = reqMethod;
 	}
 	
 	

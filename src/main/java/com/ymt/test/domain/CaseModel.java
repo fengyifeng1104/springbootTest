@@ -16,7 +16,7 @@ public class CaseModel {
 	private Integer sceneId;
 	private String sceneDescription;
 	private String caseDescription;
-	private String checkPoinDescription;
+	private String checkPointDescription;
 	private Integer templateId;
 	private String templateName;
 	private String extraInputList;
@@ -60,11 +60,12 @@ public class CaseModel {
 	public void setCaseDescription(String caseDescription) {
 		this.caseDescription = caseDescription;
 	}
-	public String getCheckPoinDescription() {
-		return checkPoinDescription;
+
+	public String getCheckPointDescription() {
+		return checkPointDescription;
 	}
-	public void setCheckPoinDescription(String checkPoinDescription) {
-		this.checkPoinDescription = checkPoinDescription;
+	public void setCheckPointDescription(String checkPointDescription) {
+		this.checkPointDescription = checkPointDescription;
 	}
 	public Integer getTemplateId() {
 		return templateId;
