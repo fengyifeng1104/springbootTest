@@ -1,5 +1,7 @@
 package com.ymt.test.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Page;
@@ -38,6 +40,11 @@ public class SceneManageController {
 	@RequestMapping(value="/getSceneById",method={RequestMethod.GET})
 	public SceneModel getSceneById(@RequestParam Integer sceneId){
 		return sceneService.getSceneById(sceneId);
+	}
+	
+	@RequestMapping(value="/searchSceneByDescription",method={RequestMethod.GET})
+	public List<SceneModel> searchSceneByDescription(@RequestParam String sceneDescription){
+		return sceneService.searchSceneByDescription(sceneDescription);
 	}
 
 }

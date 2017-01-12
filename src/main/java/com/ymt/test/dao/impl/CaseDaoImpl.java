@@ -67,14 +67,15 @@ public class  CaseDaoImpl  implements CaseDao{
 	@Override
 	@Transactional
 	public List<CaseModel> searchCaseByDescription(String caseDescription) {
-		String sql="select * from case_model where case_description like '%"+caseDescription+"%'";
+		String sql="select * from case_model where case_description like '%"+caseDescription+"%' limit 10";
 		List<CaseModel> casemodelList=jdbcTemplate.query(sql,new RowMapper<CaseModel>()
 			{
 				@Override
 				public CaseModel mapRow(ResultSet rs,int rowNum)throws SQLException
 				{
 					CaseModel caseModel=new CaseModel();
-					caseModel.setAddTime(rs.getDate("add_time"));
+					
+					/*caseModel.setAddTime(rs.getDate("add_time"));
 					caseModel.setbDeleted(rs.getBoolean("b_deleted"));
 					caseModel.setCaseDescription(rs.getString("case_description"));
 					caseModel.setCaseId(rs.getInt("case_id"));
@@ -83,7 +84,10 @@ public class  CaseDaoImpl  implements CaseDao{
 					caseModel.setExtraCheckList(rs.getString("extra_check_list"));
 					caseModel.setExtraInputList(rs.getString("extra_input_list"));
 					caseModel.setModelDescription(rs.getString("model_description"));
-					caseModel.setSceneDescription(rs.getString("scene_description"));
+					caseModel.setSceneDescription(rs.getString("scene_description"));*/
+					
+					caseModel.setCaseId(rs.getInt("case_id"));
+					caseModel.setCaseDescription(rs.getString("case_description"));
 					return caseModel;
 				}
 			});

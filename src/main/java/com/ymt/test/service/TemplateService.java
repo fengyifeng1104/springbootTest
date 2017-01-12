@@ -1,6 +1,7 @@
 package com.ymt.test.service;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -53,6 +54,11 @@ public class TemplateService {
 		return "仅保存模版信息成功";
 	}
 	
+	//根据模版名称模糊查询
+	@Transactional
+	public List<TemplateModel> searchTemplateByName(String templateName){
+		return templateDao.searchTemplateByName(templateName);
+	}
 	
 	
 	

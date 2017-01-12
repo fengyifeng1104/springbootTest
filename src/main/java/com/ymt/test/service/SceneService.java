@@ -1,6 +1,7 @@
 package com.ymt.test.service;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -47,6 +48,11 @@ public class SceneService {
 	@Transactional
 	public SceneModel getSceneById(Integer sceneId){
 		return sceneDao.getScenenById(sceneId);
+	}
+	
+	//模糊查询场景
+	public List<SceneModel> searchSceneByDescription(String sceneDescription){
+		return sceneDao.searchSceneByDescription(sceneDescription);
 	}
 	
 	

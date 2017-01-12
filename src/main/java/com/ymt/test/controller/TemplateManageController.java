@@ -1,5 +1,7 @@
 package com.ymt.test.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Page;
@@ -46,6 +48,11 @@ public class TemplateManageController {
 	public String  editTemplateDetailById(@RequestBody TemplateModel templateModel){
 		templateService.editTemplateDetailById(templateModel);
 		return "仅编辑模版详情成功";
+	}
+	
+	@RequestMapping(value="/searchTemplateByName",method={RequestMethod.GET})
+	public List<TemplateModel> searchTemplateByName(String templateName){
+		return templateService.searchTemplateByName(templateName);	
 	}
 
 }
