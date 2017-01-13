@@ -10,8 +10,13 @@
  	<link href="/css/bootstrap.css" rel="stylesheet" />
  	<link href="/css/bootstrap-theme.css" rel="stylesheet" />
  	
-
+	<title>主页面</title>
 </head>
+
+<div class="page-header">
+  <h2 style="text-align:center">自动化测试平台-数据驱动</h2>
+</div>
+
 <div>
 	<label>当前登录用户:</label><label id="curUserId"></label>
 	<br />
@@ -40,21 +45,14 @@
   	<table id="case_table"  class="table table-bordered">
   		<thead>
   			  <tr>
-  			  <th>操作</th>
-			  <th>用户名</th>
 			  <th>用例Id</th>
 			  <th>用例描述</th>
-			  <th>模块描述</th>
-			  <th>模板Id</th>
-			  <th>模板名称</th>
 			  <th>场景Id</th>
-			  <th>场景描述</th>
 			  <th>自定义输入</th>
 			  <th>校验描述</th>
 			  <th>自定义输出检查</th>
 			  <th>检查类型</th>
-			  
-   			  
+			  <th>最后修改用户</th>
   			</tr>
   		</thead>
   		<tbody>
@@ -77,16 +75,15 @@
     <table id="scene_table"  class="table table-bordered">
   		<thead>
   			  <tr>
-  			  <th>操作</th>
-			  <th>用户名</th>
 			  <th>场景Id</th>
 			  <th>场景描述</th>
-			  <th>场景Level</th>
+			  <th>请求类型</th>
 			  <th>场景Host</th>
 			  <th>场景API</th>
 			  <th>模块描述</th>
 			  <th>模板Id</th>
 			  <th>备注信息</th>
+			  <th>最后修改用户</th>
   			</tr>
   		</thead>
   		<tbody>
@@ -108,8 +105,7 @@
     <table id="template_table"  class="table table-bordered">
   		<thead>
   			  <tr>
-  			  <th>操作</th>
-			  <th>用户名</th>
+			  
 			  <th>模板Id</th>
 			  <th>模板名称</th>
 			  <th>模板内容信息</th>
@@ -120,6 +116,7 @@
 			  <th>Output2SqlMap</th>
 			  <th>Sql2MongoMap</th>
 			  <th>Output2MongoMap</th>
+			  <th>最后修改用户</th>
    			  
   			</tr>
   		</thead>
