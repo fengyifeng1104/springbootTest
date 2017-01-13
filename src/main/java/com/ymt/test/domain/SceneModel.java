@@ -16,11 +16,13 @@ public class SceneModel {
 	private String sceneHost;
 	private String sceneApi;
 	private Integer templateId;
+	private String templateName;
 	private Date addTime;
 	private Integer userId;
 	private boolean bDeleted;
 	private Integer sceneLevel;
 	private String ReqMethod;
+
 	private String mark;
 	public Integer getSceneId() {
 		return sceneId;
@@ -57,6 +59,12 @@ public class SceneModel {
 	}
 	public void setTemplateId(Integer templateId) {
 		this.templateId = templateId;
+	}
+	public String getTemplateName() {
+		return templateName;
+	}
+	public void setTemplateName(String templateName) {
+		this.templateName = templateName;
 	}
 	public Date getAddTime() {
 		return addTime;
