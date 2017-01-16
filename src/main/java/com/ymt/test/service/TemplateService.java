@@ -35,6 +35,8 @@ public class TemplateService {
 	
 	@Transactional
 	public String editTemplate(TemplateModel templateModel){
+		TemplateModel temp=templateDao.getTemplateById(templateModel.getTemplateId());
+		templateModel.setTemplateDetail(temp.getTemplateDetail());
 		templateDao.saveTemplate(templateModel);
 		return "编辑成功";
 	}
