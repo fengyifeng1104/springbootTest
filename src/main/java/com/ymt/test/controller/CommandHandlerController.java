@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.ymt.test.service.CommandService;
 
 @RestController
-@RequestMapping("/CommendCentre")
+@RequestMapping("/CommandCentre")
 public class CommandHandlerController {
 	@Resource
 	private CommandService commandService;
