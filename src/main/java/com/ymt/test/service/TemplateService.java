@@ -37,7 +37,7 @@ public class TemplateService {
 	public String editTemplate(TemplateModel templateModel){
 		TemplateModel temp=templateDao.getTemplateById(templateModel.getTemplateId());
 		templateModel.setTemplateDetail(temp.getTemplateDetail());
-		templateDao.saveTemplate(templateModel);
+		templateDao.saveTemplate(templateModel) ;
 		return "编辑成功";
 	}
 	
