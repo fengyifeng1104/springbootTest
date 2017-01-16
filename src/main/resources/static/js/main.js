@@ -20,7 +20,7 @@ function getCookie(name)
 			var $tbody = $('#case_table tbody');
 			var htmlStr = '';
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/editcase?cid='+item.caseId+'" target="_blank">'+
+				htmlStr += '<tr><td><input id="checkboxSuccess" data-id='+item.caseId +' type="checkbox"></td><td><a href="/editcase?cid='+item.caseId+'" target="_blank">'+
 							item.caseId+
 							'</a></td><td>'+
 							item.caseDescription+

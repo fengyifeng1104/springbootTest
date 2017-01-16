@@ -3,28 +3,21 @@ package com.ymt.test.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.management.Query;
 import javax.transaction.Transactional;
 
-import org.hibernate.engine.jdbc.spi.ResultSetReturn;
-import org.hibernate.validator.constraints.Email;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ymt.test.dao.CaseDao;
 import com.ymt.test.domain.CaseModel;
-import com.ymt.test.domain.Demo;
 
 
 
