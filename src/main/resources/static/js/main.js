@@ -20,30 +20,22 @@ function getCookie(name)
 			var $tbody = $('#case_table tbody');
 			var htmlStr = '';
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/editcase?cid='+item.caseId+'" target="_blank">编辑</a></td><td>'+
-							item.userId+
-							'</td><td>'+
+				htmlStr += '<tr><td><input id="checkboxSuccess" data-id='+item.caseId +' type="checkbox"></td><td><a href="/editcase?cid='+item.caseId+'" target="_blank">'+
 							item.caseId+
-							'</td><td>'+
+							'</a></td><td>'+
 							item.caseDescription+
-							'</td><td>'+
-							item.modelDescription+
-							'</td><td>'+
-							item.templateId+
-							'</td><td>'+
-							item.templateName+
-							'</td><td>'+
+							'</td><td><a href="/editscene?sid='+item.sceneId+'" target="_blank" >'+
 							item.sceneId+
-							'</td><td>'+
-							item.sceneDescription+
-							'</td><td>'+
+							'</a></td><td>'+
 							item.extraInputList+
 							'</td><td>'+
-							item.checkPoinDescription+
+							item.checkPointDescription+
 							'</td><td>'+
 							item.extraCheckList+
 							'</td><td>'+
 							item.defaultCheckType+
+							'</td><td>'+
+							item.userId+
 							'</td></tr>';
 			});
 			$tbody.append(htmlStr);
@@ -70,11 +62,9 @@ function getCookie(name)
 			var htmlStr = '';
 			//数据在content节点下面
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/edittemplate?tid='+item.templateId+'" target="_blank">编辑</a></td><td>'+
-							item.userId+
-							'</td><td>'+
+				htmlStr += '<tr><td><a href="/edittemplate?tid='+item.templateId+'" target="_blank">'+
 							item.templateId+
-							'</td><td>'+
+							'</a></td><td>'+
 							item.templateName+
 							'<td><a data-ref="detail" href="/editjson?tid='+item.templateId+'" target="_blank">单击查看</a></td><td>'+
 							item.mark+
@@ -90,6 +80,8 @@ function getCookie(name)
 							item.sql2MongoMap+
 							'</td><td>'+
 							item.output2MongoMap+
+							'</td><td>'+
+							item.userId+
 							'</td></tr>';
 			});
 		$tbody.append(htmlStr);	
@@ -111,24 +103,24 @@ function getCookie(name)
 			var htmlStr = '';
 			//数据在content节点下面
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><a href="/editscene?sid='+item.sceneId+'" target="_blank" >编辑</a></td><td>'+
-							item.userId+
-							'</td><td>'+
+				htmlStr += '<tr><td><a href="/editscene?sid='+item.sceneId+'" target="_blank" >'+
 							item.sceneId+
-							'</td><td>'+
+							'</a></td><td>'+
 							item.sceneDescription+
 							'</td><td>'+
-							item.sceneLevel+
+							item.reqMethod+
 							'</td><td>'+
 							item.sceneHost+
 							'</td><td>'+
 							item.sceneApi+
 							'</td><td>'+
 							item.modelDescription+
-							'</td><td>'+
+							'</td><td><a href="/edittemplate?tid='+item.templateId+'" target="_blank">'+
 							item.templateId+
-							'</td><td>'+
+							'</a></td><td>'+
 							item.mark+
+							'</td><td>'+
+							item.userId+
 							'</td></tr>';
 			});
 		$tbody.append(htmlStr);	

@@ -58,5 +58,12 @@ public class HtmlController {
     @RequestMapping("/main")
     public String indexPage() {return "main";}
     
+    
+
+    //主界面
+    @RequestMapping("/test")
+    public String test() {return "test";}
+    
+    
 }
 
