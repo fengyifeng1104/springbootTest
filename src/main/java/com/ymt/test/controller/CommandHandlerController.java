@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.ymt.test.service.CommandService;
 
 @RestController
@@ -17,9 +17,15 @@ public class CommandHandlerController {
 	private CommandService commandService;
 	
 	@RequestMapping(value="/batchRunCases",method={RequestMethod.POST})
-	public String batchRunCases(@RequestBody JSONArray caseIdList){
+	public String batchRunCases(@RequestBody JSONObject caseIdList){
+		
+			
+		System.out.println(caseIdList.get("userId"));
+		System.out.println(caseIdList.get("env"));
+		System.out.println(caseIdList.get("caseIdList"));
+		System.out.println("Controller调用成功");
+		
 		commandService.batchRunCases(caseIdList);
-		System.out.println("Controller调用成功");	
 		return "Controller调用成功";
 	}
 	
