@@ -69,22 +69,6 @@
 	  <groupId>org.springframework.boot</groupId>
 	  <artifactId>spring-boot-starter-thymeleaf</artifactId>
 	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-	<dependency>
-	    <groupId>org.apache.httpcomponents</groupId>
-	    <artifactId>httpclient</artifactId>
-	    <version>4.3.1</version>
-	</dependency>
-    
-    
-    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-cache -->
-	<dependency>
-	    <groupId>org.apache.httpcomponents</groupId>
-	    <artifactId>httpclient-cache</artifactId>
-	    <version>4.3.1</version>
-	</dependency>
-    
   </dependencies>
   
    <build>
