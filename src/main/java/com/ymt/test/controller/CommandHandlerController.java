@@ -1,4 +1,3 @@
-
 package com.ymt.test.controller;
 
 import javax.annotation.Resource;
@@ -19,14 +18,13 @@ public class CommandHandlerController {
 	
 	@RequestMapping(value="/batchRunCases",method={RequestMethod.POST})
 	public String batchRunCases(@RequestBody JSONObject caseIdList){
-		
-			
+	
+		System.out.println("Controller调用成功");	
 		System.out.println(caseIdList.get("userId"));
 		System.out.println(caseIdList.get("env"));
 		System.out.println(caseIdList.get("caseIdList"));
-		System.out.println("Controller调用成功  ");
-		
 		commandService.batchRunCases(caseIdList);
+	
 		return "Controller调用成功";
 	}
 	

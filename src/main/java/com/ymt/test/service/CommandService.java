@@ -3,6 +3,7 @@ package com.ymt.test.service;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ymt.test.util.HttpClientUtil;
 
 @Service
 public class CommandService {
@@ -16,6 +17,16 @@ public class CommandService {
 		System.out.println(caseIdList.get("caseIdList"));
 
 		System.out.println("service调用成功");
+		
+		try {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("caseIdList", caseIdList.getJSONArray("caseIdList"));
+			HttpClientUtil.requestPostJson("http://localhost:9092/RunningController/getRunningDataByCasesIdList",jsonObject );
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return "运行成功";
 	}
