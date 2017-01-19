@@ -24,7 +24,7 @@ public class CommandHandlerController {
 		System.out.println(caseIdList.get("userId"));
 		System.out.println(caseIdList.get("env"));
 		System.out.println(caseIdList.get("caseIdList"));
-		System.out.println("Controller调用成功");
+		System.out.println("Controller调用成功  ");
 		
 		commandService.batchRunCases(caseIdList);
 		return "Controller调用成功";
