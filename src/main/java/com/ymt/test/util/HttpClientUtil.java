@@ -125,7 +125,7 @@ public class HttpClientUtil {
 
         try {
             StringEntity entity = new StringEntity(params, Consts.UTF_8);
-            entity.setContentType("application/json");
+            entity.setContentType("application/jsons");
 
             httpPost.setEntity(entity);
 
@@ -155,6 +155,7 @@ public class HttpClientUtil {
         String params = JSON.toJSONString(obj);
         return requestPostJsonStr(url, params);
     }
+
 
 
     private static String getSuccessRetFromResp(HttpResponse response, String url, String params) throws Exception {

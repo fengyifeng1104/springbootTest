@@ -20,8 +20,7 @@ public class CommandHandlerController {
 	
 	@RequestMapping(value="/batchRunCases",method={RequestMethod.POST})
 	public String batchRunCases(@RequestBody JSONArray caseIdList){
-		commandService.batchRunCases(caseIdList);
-		System.out.println("Controller调用成功");	
+
 
 		try {
 			JSONObject jsonObject = new JSONObject();

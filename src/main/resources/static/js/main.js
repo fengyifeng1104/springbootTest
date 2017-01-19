@@ -20,7 +20,7 @@ function getCookie(name)
 			var $tbody = $('#case_table tbody');
 			var htmlStr = '';
 			$.each(data.content, function(i,item){
-				htmlStr += '<tr><td><input class="checkbox_selectcase" data-id='+item.caseId +' type="checkbox"></td><td><a href="/editcase?cid='+item.caseId+'" target="_blank">'+
+				htmlStr += '<tr><td><input id="checkboxSuccess" data-id='+item.caseId +' type="checkbox"></td><td><a href="/editcase?cid='+item.caseId+'" target="_blank">'+
 							item.caseId+
 							'</a></td><td>'+
 							item.caseDescription+
@@ -188,11 +188,6 @@ function getCookie(name)
 $(function() {
 
 	
-	
-	
-	
-	
-	
 	//userid  注册
 	window.localStorage.user = JSON.stringify({uid: 3383});
 	var user = JSON.parse(localStorage.user) || {uid: 0};
@@ -212,37 +207,6 @@ $(function() {
 	$('#caseMge').on('click', selectCase);
 	$('#caseRefresh').on('click', selectCase);
 	
-	
-	$('#caseExecute').on('click',function(ev){
-		ev.preventDefault();
-		var selector = $('input:checkbox').map(function(){ 
-	   	 	return this.checked ? this.getAttribute('data-id') : ''; 
-		}).get().filter(String);
-		console.log(selector);
-		
-		if (selector!=""){
-				 $.ajax({
-				 		type: 'POST',
-				 		contentType: "application/json; charset=utf-8",
-				 		url: '/CommandCentre/batchRunCases',
-				 	
-				 		data: JSON.stringify(selector),
-				 		dataType : 'json'
-				 	}).done(function(data) {
-				 		 alert("执行成功");
-				 		 return window.close();
-				 	}).fail(function(data) {
-				 		alert("执行失败")
-				 });
-		}else{
-		 alert("没有执行case")
-		}
-		
-		
-	})
-	
-	
-	
 	$('#templateMge').on('click', selectTemplate);
 	$('#templateRefresh').on('click', selectTemplate);
 	
@@ -259,12 +223,7 @@ $(function() {
 	})
 	
 	
-
-	$(document).on('change', '.checkbox_selectcase', function(ev) {
-		var checked = $(this).prop('checked');
-		console.log('current checked: ', checked);
-	})
-
+	
 
 
 	 

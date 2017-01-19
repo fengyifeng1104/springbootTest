@@ -24,10 +24,6 @@ import com.ymt.test.domain.CaseModel;
 @Repository
 public class  CaseDaoImpl  implements CaseDao{
 
-	private static final Object rowMapper = null;
-
-	private static final int CaseModel = 0;
-
 	@Resource
 	private CaseInterface caseInterface;
 	
