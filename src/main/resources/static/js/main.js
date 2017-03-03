@@ -132,6 +132,46 @@ function getCookie(name)
     	
 	}
 	
+	
+	function selectResult(ev,pageNum) {
+		ev.preventDefault();
+		//Url to do 
+		pageNum = pageNum ||  1;
+		$.get("/runResult/getResultList?page="+pageNum+"&size=20",function(data){
+			console.log('runresult data: ', data);
+			
+			localStorage.page_case=JSON.stringify({"totalPage_result":data.totalPages});
+			
+			$("#runResult_table tbody").empty();
+			var $tbody = $('#runResult_table tbody');
+			var htmlStr = '';
+			$.each(data.content, function(i,item){
+				htmlStr += '<tr><td>'+
+							item.resultId+
+							'</td><td><a href="http://better.ymatou.com/home/testsuiteresult.html?tpid='+item.passId+'" target="_blank" >'+
+							item.hostName+
+							'</a></td><td>'+
+							item.runRecordName+
+							'</td><td>'+
+							item.uerName+
+							'</td></tr>';
+			});
+			$tbody.append(htmlStr);
+			
+			
+	    });
+	    $(ev.target).tab('show');	
+	    
+	    	//分页
+		 var element = $('#runResult_page');//获得数据装配的位置
+	     var pageN = JSON.parse(localStorage.page_case).totalPage_result;
+	     element.bootstrapPaginator(pageInit('selectResult',pageN));	//进行初始化
+    
+	}
+	
+	
+	
+	
 	function pageInit(funType,totalPage){
 
 		var nP = 5
@@ -180,6 +220,9 @@ function getCookie(name)
                 }
                 else if (funType=='selectScene'){
                 	selectScene(e, page);
+                }
+                 else if (funType=='selectResult'){
+                	selectResult(e, page);
                 }
             }
         };
@@ -245,7 +288,8 @@ $(function() {
 	$('#sceneMge').on('click',selectScene );
 	$('#sceneRefresh').on('click', selectScene);
 	
-
+	$('#resultRecord').on('click', selectResult);
+	$('#runResultRefresh').on('click', selectResult);
 	
 		
 	//默认tab
